@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>E-commerce store</title>
+   <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+   <link rel="stylesheet" href="master.css">
+</head>
+<style>
+   *{
+      margin: 0;
+      padding: 0;
+      text-transform: capitalize;
+      font-family: sans-serif;
+   }
+   nav{
+      background-color: #000;
+      color: #fff;
+      padding: 24px;
+      text-align: center;
+   }
+   #goods_detail{
+      font-size: 15px;
+      margin-left: 40px;
+      margin-top: 80px;
+   }
+/* #img{} */
+#title{
+   font-weight: 500;
+      margin-top: 20px;
+}
+#p{
+     font-size: 20px;
+}
+#btn{
+   border-radius: 20px;
+   padding: 8px;
+   background-color: #000;
+   color: #fff;
+    margin-top: 20px;
+}
+</style>
+
+<body>
+
+   <nav>
+      <h1 onclick="location.href='store.html'" class="logo">E - commerce store</h1>
+   </nav>
+   <blockquote cite="/goods_detail.html?goods_id=26710433" id="goods_detail">
+      
+   </blockquote>
+
+</body>
+<script src="statusofnetwork.js"></script>
+
+<script>
+   var btn = document.getElementById("btn")
+   var body = document.querySelector("body")
+   function getParameter(parameter_name) {
+      params = window.location.href.split("?")[1].split("&");
+      for (i = 0; i < params.length; i++) {
+         e = params[i].split("=");
+         if (e[0] == parameter_name) {
+            return e[1];
+         }
+      }
+   }
+   
+   async function getFeedProducts(id) {
+      const url = `https://shein-xi-yin-data-service.p.rapidapi.com/product/get_detailed_recommended_goods?goods_id=${id}&cat_id=2561&country=SAR&language=AR&currency=SAR&page=1&size=20`;
+      const p = await fetch(url, rapidOptions)
+      return await p.json()
+      
+   }
+   const rapidOptions = {
+      method: 'GET',
+      headers: {
+         'X-RapidAPI-Key': '2fda7ac381mshd085eb92480dad8p1c5030jsn9421027ef2ef',
+         'X-RapidAPI-Host': 'shein-Xi-Yin-data-service.p.rapidapi.com'
+      }
+   }
+   window.onload = async () => {
+      const url = 'https://shein-xi-yin-data-service.p.rapidapi.com/product/get_goods_details?' + new URLSearchParams({
+         goods_id: getParameter("goods_id"),
+         country: "ar",
+         language: "ar",
+         currency: "SAR"
+      })
+      const fetchProduct = await fetch(url, rapidOptions);
+      const product = await fetchProduct.json();
+      document.getElementById("goods_detail").innerHTML += `
+                    <div class="container">
+                    <div class="con">
+                     <img width="200px" id="img" src="${product.info.nowater_gallery.detail_image[1].origin_image}" alt=""> 
+                     <h1 id="title">${product.info.goods_name}</h1>
+                     <p id="p" style="margin-top:20px">${product.info.sale_price.usdAmountWithSymbol}</p>
+                     <button id="btn">Buy it</button>
+                        
+                    </div>
+                    </div>
+                    `
+                    document.getElementById("btn").onclick =()=>{
+                      var producct = alert(`your ${product.info.goods_name} have been added to your cart`)
+                      localStorage.setItem("Added to cart",producct)
+                      var AddedItem = localStorage.getItem("Added to cart")
+                      console.log(AddedItem)
+                    }
+                    document.getElementById("title").innerHTML = product.info.goods_name
+                    document.getElementById("mainimg").src = product.info.nowater_gallery.detail_image[1].origin_image;
+                    document.getElementById("price").innerHTML = product.info.sale_price.usdAmountWithSymbol
+                  }
+            
+               </script>
+
+</html>
