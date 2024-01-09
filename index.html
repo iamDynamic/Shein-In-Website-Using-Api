@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>E-commerce store</title>
+          <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="master.css">
+
+          <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+</head>
+<style>
+    #About,button{
+        cursor: pointer;
+    }
+          span,a{
+                    text-decoration: underline;
+                    color: lightsalmon;
+          }
+</style>
+<body>
+
+          <nav>
+                    <h1 class="logo">E-commerce store</h1>
+          </nav>
+
+          <div class="container">
+                    <h1>
+                        welcome to E-commerce store 2024 ,
+                    </h1>
+                    <br>
+                    <p>in this website you will find the most popular products</p>
+                    <span id="About">click here for more info</span><br>
+                    <button onclick="location.href='store.html'">
+                        lets start
+                    </button>
+          </div>
+      
+            
+          <div style="margin-left: 200px;margin-top: 300px;text-transform: capitalize;" class="about" id="inner">
+                   
+          </div>
+
+
+
+          
+</body>
+<script src="statusofnetwork.js"></script>
+<script>
+          var About = document.getElementById("About")
+          About.style.marginTop = "-20px"
+          var inner = document.getElementById("inner")
+          var container = document.querySelector(".container")
+          var aboutWebAndMe = 
+          `
+          <h1 id="about">
+              hi iam ali ibrahim iam 15 year old i study in cis college ,i live on
+              lebanon in hreit hrek i program whith 3 langaues [html,css,js] if you would to get the code <a href='allcodes.t'>Click Me</a> 
+              i make this website upgrade my knowledge in api 
+              so iam gitting all things from website named <a href="https://ar.shein.com/?ref=www&rep=dir&ret=ar">shein.com</a> i get ,
+              the api from <a href="https://rapidapi.com/hub">Rapid Api</a> if you need more information go <br> to 
+              <a href="https://play-store-gold.vercel.app/">my store</a> or  <a href="tel:96181328998">contact us </a> on whatsapp
+          </h1>
+          `
+          About.addEventListener("click",()=>{
+                    container.remove()
+                    inner.innerHTML = aboutWebAndMe
+          })
+</script>
+</html>
