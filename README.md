@@ -1,0 +1,3 @@
+# Hi Iam Ali Ibrahim Iam 15 Year Old I Study In Cis College ,I Live On Lebanon In Hreit Hrek I Program Whith 3 Langaues [[Html](https://www.w3schools.com/html/),[Css](https://www.w3schools.com/css/),[Js](https://www.w3schools.com/js/default.asp)] 
+## If You Would To Get The Code [AllCodes](https://github.com/iamDynamic/Shein-In-Website-Using-Api) I Make This Website Upgrade My Knowledge In Api So Iam Gitting All Things From Website Named [Shein.Com](https://ar.shein.com/) I Get , The Api From [Rapid Api](https://rapidapi.com/hub) If You Need More Information Go To [My Store](https://play-store-gold.vercel.app/) Or Contact Us On [Whatsapp](tel:96181328998)
+
